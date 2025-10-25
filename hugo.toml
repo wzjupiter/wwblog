@@ -2,3 +2,100 @@ baseURL = 'https://wzjupiter.github.io/wwblog/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'barks'
+
+# Global options
+canonifyURLs = true
+copyright = "© 2023 by Matilda Backendal. <a href='/privacy'>Privacy policy</a>."
+defaultContentLanguage = "en"
+disableKinds = ["taxonomy", "taxonomyTerm"]
+languageCode = "en"
+theme = "barks"
+title = "hello"
+
+
+
+# Main menu
+[[menu.main]]
+    name = "About"
+    url  = "/about"
+    weight = 2
+[[menu.main]]
+    name = "Publications"
+    url  = "/publications"
+    weight = 2
+#[[menu.main]]
+#    name = "Teaching"
+#    url  = "/teaching"
+#    weight = 2
+
+
+
+# Customization options
+[params]
+
+    [params.head]
+        author = "Matilda Backendal"
+        custom_css = "/custom.css"
+        description = "Hi, I'm WW"
+        keywords = ["cryptography", "academic", "ETH", "security", "doctorate"]
+
+    [params.navigation]
+        show_navigation = true
+
+    [params.footer]
+        show_footer = true
+
+    [params.typography]
+#        title_font = "Urbanist"
+        title_font = "Cutive Mono"
+        body_font = "Source Sans Pro"
+
+    [params.colors]
+        theme_color = "#333333"
+        background_color = "#fcfbf9"
+        text_color = "#333333"
+        link_color = "#17442a"
+
+    [params.social]
+        [params.social.email]
+            name = "E-Mail"
+            class = "fas fa-envelope"
+            url = "mailto:mbackendal@inf.ethz.ch"
+            weight = 1
+        [params.social.github]
+            name = "GitHub"
+            class = "fab fa-github"
+            url = "https://github.com/mbackendal"
+            weight = 2
+        [params.social.google_scholar]
+            name = "Google Scholar"
+            class = "ai ai-google-scholar-square"
+            url = "https://scholar.google.com/citations?user=oZZHf5EAAAAJ&hl=en"
+            weight = 3
+        [params.social.institution]
+            name = "My institution"
+            class = "fas fa-university"
+            url = "https://appliedcrypto.ethz.ch/people/person-detail.MjYyODM0.TGlzdC8zMzE4LC0yODgzMDgzMDc=.html"
+            weight = 5
+        [params.social.linkedin]
+            name = "LinkedIn"
+            class = "fab fa-linkedin"
+            url = "https://linkedin.com/in/matilda-backendal"
+            weight = 6
+        [params.social.orcid]
+            name = "ORCID iD"
+            class = "fab fa-orcid"
+            url = "https://orcid.org/0000-0002-8677-8301"
+            weight = 7
+
+
+
+# Options for Markdown renderer
+[markup]
+
+    [markup.goldmark.renderer]
+        unsafe = true
+        xHTML = true
+
+    [markup.highlight]
+        style = 'dracula'
