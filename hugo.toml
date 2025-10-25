@@ -1,14 +1,10 @@
-baseURL = 'https://wzjupiter.github.io/wwblog/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-theme = 'barks'
-
 # Global options
+baseURL = 'https://wzjupiter.github.io/wwblog/'
 canonifyURLs = true
 copyright = "© 2023 by Matilda Backendal. <a href='/privacy'>Privacy policy</a>."
 defaultContentLanguage = "en"
 disableKinds = ["taxonomy", "taxonomyTerm"]
-languageCode = "en"
+languageCode = "en-us"
 theme = "barks"
 title = "hello"
 
