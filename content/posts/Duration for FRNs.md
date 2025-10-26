@@ -8,7 +8,7 @@ math = true
 
 This is **bold** text, and this is *emphasized* text.
 
-Assuming a bond with notional $1$ that pays annually, the price at next coupon $P$ is 
+Assuming a floater with notional $1$ that pays annually, the price at the next refix $P$ is 
 
 $$
 \begin{align*}
@@ -20,16 +20,39 @@ P &= \sum_{t=1}^{n} \frac{C_t}{(1+r)^t} + \frac{1}{(1+r)^n} \\
 \end{align*}
 $$
 
-If the number of years to the next coupon is $t$, the current price $P_0$ will be
+So we see that when the index refixes, the bond price will be close to par. If the number of years to the next coupon is $t$, the current price $P_0$ will be
 
 $$
 P_0 = \frac{1+IN+QM}{1+(IN+DM)t} \quad \text{(where $IN =$Index to Next Pay)}
 $$
 
-We can see this is a zero-coupon bond with maturity $t$, Macaulay duration $t$, and modified duration \frac{t}{1 + (IN + DM)t}
+We can see this is a zero-coupon bond with maturity $t$, Macaulay duration $t$, and modified duration $\frac{t}{1 + (IN + DM)t}$
 
 For floaters with a forward-looking reset index, note that $IN$ is fixed at the previous coupon date, we can get the modified duration by differentiating $P_0$ with respect to $DM$:
 
 $$
 M_{Dur} = \frac{dP_0}{dDM} = \frac{t}{1 + (IN + DM)t}
+$$
+
+For daily reset floaters, we can expect the price to always be close to par because it refixes daily.
+
+$$
+\begin{align*}
+P_0 &= \frac{F + \text{Accrued Interest}}{1+(IN+DM)t} \\
+    &= \frac{F + F\times\frac{IN + QM}{360}}{1+(IN+DM)t} \\
+    &= F\times\frac{1 + \frac{IN + QM}{360}}{1+\frac{IN + DM}{360}} \\
+    &= F \quad \text{(assuming credit spread remain constant, $QM = DM$)} 
+\end{align*}
+$$
+
+then modified duration is
+
+$$
+\begin{align*}
+\text{Modified Duration} &= -\frac{1}{P} \frac{dP}{dy} \\
+                        &\approx -\frac{1}{F} \frac{\Delta P}{\Delta y} \quad \text{(since } P \approx F \text{)}\\ 
+                        &= -\frac{1}{F} \frac{ \left( -F \times \frac{\Delta y}{360} \right) }{\Delta y} \quad \text{$\left( -F \times \frac{\Delta y}{360} \text{ is the accrued interest} \right)$} \\
+                        &= -\frac{1}{F} \times \left( -\frac{F}{360} \right) \\
+                        &= \frac{1}{360}
+\end{align*}
 $$
